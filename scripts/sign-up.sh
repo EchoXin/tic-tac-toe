@@ -12,7 +12,7 @@
 # echo
 #!/bin/bash
 
-API="http://localhost:3000/sign-up"
+API="http://tic-tac-toe.wdibos.com/games/sign-up"
 #API="http://httpbin.org/post"
 
 curl ${API} \
