@@ -8,10 +8,11 @@
     </head>
     <body class="container-fluid">
       <nav class="navbar">
-        <button class="btn btn-default" id="sign-up">Sign up</button>
-        <button class="btn btn-default" id="sign-in">Sign in</button>
+        <button class="btn btn-default" id="sign-out">Sign out</button>
         <button class="btn btn-default" id="change-password">Change password</button>
-        <button class="btn btn-default" id="sign-out">Sign out!</button>
+        <button class="btn btn-default" id="sign-in">Sign in</button>
+        <button class="btn btn-default" id="sign-up">Sign up</button>
+        <h4 class="hello">Welcome~~</h4>
       </nav>
 
       <!-- sign-up -->
@@ -21,17 +22,18 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <form class="sign-up-form">
-                <input type='text' class='email' name="credentials[email]" placeholder="Email"><br>
-                <input type='password' class='password' name="credentials[password]" placeholder="Password"><br>
-                <input type='password' class='confirm-password' name="credentials[password_confirmation]" placeholder="Comfirm Password">
-              <div class="modal-footer">
+          <form class="sign-up-form">
+            <input type='text' class='email' name="credentials[email]" placeholder="Email"><br>
+            <input type='password' class='password' name="credentials[password]" placeholder="Password"><br>
+            <input type='password' class='confirm-password' name="credentials[password_confirmation]" placeholder="Comfirm Password">
+            <div class="modal-footer">
               <input type="submit" class="btn btn-default sign-up-submit"  value="Sign up!">
-              </div>
-            </form>
+            </div>
+          </form>
           </div>
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+        </div>
+      </div>
+
       <!-- sign-in -->
       <div class="modal fade sign-in" tabindex="-1" role="dialog">
         <div class="modal-dialog"  role="document">
@@ -47,9 +49,8 @@
             </div>
             </form>
           </div>
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
-
+        </div>
+      </div>
 
       <!-- change-password -->
       <div class="modal fade change-password" tabindex="-1" role="dialog">
@@ -66,30 +67,50 @@
             </div>
           </form>
           </div>
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+        </div>
+      </div>
 
+<!-- win alert -->
+      <div class="modal fade win" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+          <div class="modal-body">
+            <p>You win!</p>
+          </div>
+          <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+<!-- game-button -->
+    <div class='game-button'>
       <button class="btn btn-default" id="create">New Game</button>
+      <button class="btn btn-default" id="update">Update Game</button>
       <button class="btn btn-default" id="show">Show Game</button>
-      <div class="game-board">
-    <div class="row-one">
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='1'></div>
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='2'></div>
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='3'></div>
     </div>
-    <div class="row-two">
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='4'></div>
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='5'></div>
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='6'></div>
-    </div>
-    <div class="row-three">
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='7'></div>
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='8'></div>
-      <div class="col-xs-4 col-sm-4 col-md-4" data-ceil='9'></div>
-    </div>
+
+<!-- game-board -->
+    <div class="game-board">
+      <div class="row-one">
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='1'></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='2'></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='3'></div>
+      </div>
+      <div class="row-two">
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='4'></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='5'></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='6'></div>
+      </div>
+      <div class="row-three">
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='7'></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='8'></div>
+        <div class="col-xs-4 col-sm-4 col-md-4" data-cell='9'></div>
+      </div>
   </div>
-
-
     </body>
 </html>

@@ -31,7 +31,7 @@ const changePassword = function(data){
   });
 };
 
-  const signOut = () => $.ajax({
+const signOut = () => $.ajax({
       url: app.api + "/sign-out/" + app.user.id,
       method:'DELETE',
       headers: {
@@ -39,7 +39,7 @@ const changePassword = function(data){
       },
     });
 
-    const create = function () {
+const create = function () {
     return $.ajax({
     url: app.api + '/games',
     method: 'POST',
@@ -50,7 +50,7 @@ const changePassword = function(data){
   });
 };
 
-  const show = function () {
+const show = function () {
   return $.ajax({
     url: app.api + '/games/' + app.game.id,
     method: 'GET',
@@ -59,6 +59,18 @@ const changePassword = function(data){
     },
   });
   };
+
+const update = function () {
+  return $.ajax({
+    url: app.api + '/games/' + app.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+
+    data: {cells:['x','','','','','','','','']}
+  });
+};
 
 
 
@@ -71,6 +83,7 @@ module.exports = {
   signOut,
   create,
   show,
+  update,
 
 
 };

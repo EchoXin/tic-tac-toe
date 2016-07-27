@@ -32,6 +32,14 @@ const createSuccess = function (data) {
   app.game=data.game;
 };
 
+const updateSuccess = function (data) {
+  if (data.game) {
+    console.log(data.game);
+  } else {
+    console.table(data.games);
+  }
+};
+
 
 module.exports = {
   app,
@@ -40,4 +48,5 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   createSuccess,
+  updateSuccess,
 };

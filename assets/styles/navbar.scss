@@ -1,4 +1,11 @@
-button {
+.navbar{
+  background: black;
+  color:white;
+  padding:10px 0 40px 0;
+}
+
+.navbar button {
+  float:right;
   margin: 20px;
 }
 .sign-in-form{
@@ -11,4 +18,7 @@ input{
 
 sign-up-modal{
   border: 2px solid white;
+}
+h1{
+  color:white;
 }

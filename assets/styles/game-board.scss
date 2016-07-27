@@ -1,9 +1,15 @@
 .game-board{
   width:50%;
-  margin:50px auto;
+  margin:20px auto;
 }
 .col-md-4{
   width:30%;
   padding-bottom:30%;
   border:2px solid black;
+  background-position: center;
 }
+
+.game-button{
+  margin:50px 0 50px 0;
+  
+};
