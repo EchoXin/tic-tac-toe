@@ -39,6 +39,81 @@ const signOut = () => $.ajax({
       },
     });
 
+// game logic
+
+let cellOne=[];
+let cellTwo=[];
+let move=0;
+let gameover=false;
+const showXo=function showXo(){
+
+  console.log(move);
+  if ( move%2===0 ){
+  $(this).css('background','url(http://cdn.istoresinc.com/odi/images/fullsize/REX00LB1o.jpg)');
+  $(this).css('background-position','center');
+  $(this).css('background-size','cover');
+  cellOne[move/2]=$(this).data('cell');
+  console.log(move);
+  console.log(cellOne);
+  console.log(cellTwo);
+  move++;
+} else{
+  $(this).css('background','url(https://image.freepik.com/free-icon/letter-x_318-26692.png)');
+  $(this).css('background-position','center');
+  $(this).css('background-size','cover');
+  cellTwo[(move-1)/2]=$(this).data('cell');
+  move++;
+  console.log(move);
+  console.log(cellOne);
+  console.log(cellTwo);
+}
+
+if((cellOne.includes(1)&&cellOne.includes(2)&&cellOne.includes(3))||(cellOne.includes(4)&&cellOne.includes(5)&&cellOne.includes(6))||(cellOne.includes(7)&&cellOne.includes(8)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(4)&&cellOne.includes(7))){
+  cellOne=[];
+  cellTwo=[];
+  move=0;
+  console.log(cellOne);
+  console.log(cellTwo);
+  $('.win').modal('show');
+  gameover=true;
+
+}
+if((cellOne.includes(3)&&cellOne.includes(6)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(5)&&cellOne.includes(9))||(cellOne.includes(3)&&cellOne.includes(5)&&cellOne.includes(7))){
+  cellOne=[];
+  cellTwo=[];
+  move=0;
+  console.log(cellOne);
+  console.log(cellTwo);
+  $('.win').modal('show');
+  gameover=true;
+
+}
+if((cellTwo.includes(1)&&cellTwo.includes(2)&&cellTwo.includes(3))||(cellTwo.includes(4)&&cellTwo.includes(5)&&cellTwo.includes(6))||(cellTwo.includes(7)&&cellTwo.includes(8)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(4)&&cellTwo.includes(7))){
+  cellOne=[];
+  cellTwo=[];
+  move=0;
+  console.log(cellOne);
+  console.log(cellTwo);
+  $('.win').modal('show');
+  gameover=true;
+}
+if((cellTwo.includes(3)&&cellTwo.includes(6)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(5)&&cellTwo.includes(9))||(cellTwo.includes(3)&&cellTwo.includes(5)&&cellTwo.includes(7))){
+  cellOne=[];
+  cellTwo=[];
+  move=0;
+  console.log(cellOne);
+  console.log(cellTwo);
+  $('.win').modal('show');
+  gameover=true;
+}
+};
+
+
+
+
+
+
+
 const create = function () {
     return $.ajax({
     url: app.api + '/games',
@@ -46,7 +121,7 @@ const create = function () {
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: app.user,
+    data: '',
   });
 };
 
@@ -59,18 +134,44 @@ const show = function () {
     },
   });
   };
+let index=-1;
+let value='';
 
 const update = function () {
-  return $.ajax({
+  console.log(index);
+  if(gameover===true){
+    index=-1;
+    value='x';
+  }
+  index++;
+  if(index%2===0){
+    value='o';
+  }else{
+    value='x';
+}
+  let gameObject = $.ajax({
     url: app.api + '/games/' + app.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
 
-    data: {cells:['x','','','','','','','','']}
+    data: {
+  "game": {
+    "cell": {
+      "index": index,
+      "value": value
+    },
+    "over": gameover
+  }
+}
   });
+  console.log(index);
+  console.log(value);
+  console.log(gameover);
+  return gameObject;
 };
+
 
 
 
@@ -84,6 +185,9 @@ module.exports = {
   create,
   show,
   update,
-
-
+  showXo,
+  cellOne,
+  cellTwo,
+  gameover,
+  move,
 };
