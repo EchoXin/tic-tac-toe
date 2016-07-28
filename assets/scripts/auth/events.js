@@ -41,13 +41,8 @@ api.signOut()
 
 
 const onCreateGames = function (event) {
-api.move=0;
-api.cellOne=[];
-api.cellTwo=[];
-api.gameover=false;
-api.index=-1;
-api.value='';
-api.gameover=false;
+api.reset(true);
+
 console.log(api.gameover);
 event.preventDefault();
 $(this).parent().next().children().find('.col-md-4').css('background','white');
@@ -63,7 +58,7 @@ api.show(event.target)
 };
 
 const onUpdateGames = function (event) {
-  console.log(api.gameover);
+console.log(api.gameover);
 event.preventDefault();
 api.update(event.target)
   .done(ui.updateSuccess)

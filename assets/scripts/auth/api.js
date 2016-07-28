@@ -172,6 +172,16 @@ const update = function () {
   return gameObject;
 };
 
+const reset=function(reset){
+  if(reset){
+  move=0;
+  cellOne=[];
+  cellTwo=[];
+  gameover=false;
+  index=-1;
+  value='';
+}
+};
 
 
 
@@ -190,4 +200,5 @@ module.exports = {
   cellTwo,
   gameover,
   move,
+  reset,
 };
