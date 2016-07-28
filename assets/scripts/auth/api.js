@@ -47,16 +47,15 @@ let move=0;
 let gameover=false;
 const showXo=function showXo(){
 
-  console.log(move);
   if ( move%2===0 ){
   $(this).css('background','url(http://cdn.istoresinc.com/odi/images/fullsize/REX00LB1o.jpg)');
   $(this).css('background-position','center');
   $(this).css('background-size','cover');
   cellOne[move/2]=$(this).data('cell');
+  move++;
   console.log(move);
   console.log(cellOne);
   console.log(cellTwo);
-  move++;
 } else{
   $(this).css('background','url(https://image.freepik.com/free-icon/letter-x_318-26692.png)');
   $(this).css('background-position','center');
@@ -69,41 +68,25 @@ const showXo=function showXo(){
 }
 
 if((cellOne.includes(1)&&cellOne.includes(2)&&cellOne.includes(3))||(cellOne.includes(4)&&cellOne.includes(5)&&cellOne.includes(6))||(cellOne.includes(7)&&cellOne.includes(8)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(4)&&cellOne.includes(7))){
-  cellOne=[];
-  cellTwo=[];
-  move=0;
-  console.log(cellOne);
-  console.log(cellTwo);
   $('.win').modal('show');
   gameover=true;
 
 }
-if((cellOne.includes(3)&&cellOne.includes(6)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(5)&&cellOne.includes(9))||(cellOne.includes(3)&&cellOne.includes(5)&&cellOne.includes(7))){
-  cellOne=[];
-  cellTwo=[];
-  move=0;
-  console.log(cellOne);
-  console.log(cellTwo);
+if((cellOne.includes(2)&&cellOne.includes(5)&&cellOne.includes(8))||(cellOne.includes(3)&&cellOne.includes(6)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(5)&&cellOne.includes(9))||(cellOne.includes(3)&&cellOne.includes(5)&&cellOne.includes(7))){
   $('.win').modal('show');
   gameover=true;
 
 }
 if((cellTwo.includes(1)&&cellTwo.includes(2)&&cellTwo.includes(3))||(cellTwo.includes(4)&&cellTwo.includes(5)&&cellTwo.includes(6))||(cellTwo.includes(7)&&cellTwo.includes(8)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(4)&&cellTwo.includes(7))){
-  cellOne=[];
-  cellTwo=[];
-  move=0;
+  $('.win').modal('show');
   console.log(cellOne);
   console.log(cellTwo);
-  $('.win').modal('show');
   gameover=true;
 }
-if((cellTwo.includes(3)&&cellTwo.includes(6)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(5)&&cellTwo.includes(9))||(cellTwo.includes(3)&&cellTwo.includes(5)&&cellTwo.includes(7))){
-  cellOne=[];
-  cellTwo=[];
-  move=0;
+if((cellTwo.includes(2)&&cellTwo.includes(5)&&cellTwo.includes(8))||(cellTwo.includes(3)&&cellTwo.includes(6)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(5)&&cellTwo.includes(9))||(cellTwo.includes(3)&&cellTwo.includes(5)&&cellTwo.includes(7))){
+  $('.win').modal('show');
   console.log(cellOne);
   console.log(cellTwo);
-  $('.win').modal('show');
   gameover=true;
 }
 };
@@ -138,11 +121,7 @@ let index=-1;
 let value='';
 
 const update = function () {
-  console.log(index);
-  if(gameover===true){
-    index=-1;
-    value='x';
-  }
+
   index++;
   if(index%2===0){
     value='o';
@@ -166,9 +145,10 @@ const update = function () {
   }
 }
   });
-  console.log(index);
-  console.log(value);
-  console.log(gameover);
+  if(gameover===true){
+    index=-1;
+    value='x';
+  }
   return gameObject;
 };
 

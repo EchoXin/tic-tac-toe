@@ -42,8 +42,6 @@ api.signOut()
 
 const onCreateGames = function (event) {
 api.reset(true);
-
-console.log(api.gameover);
 event.preventDefault();
 $(this).parent().next().children().find('.col-md-4').css('background','white');
 api.create(event.target)
@@ -58,7 +56,6 @@ api.show(event.target)
 };
 
 const onUpdateGames = function (event) {
-console.log(api.gameover);
 event.preventDefault();
 api.update(event.target)
   .done(ui.updateSuccess)
