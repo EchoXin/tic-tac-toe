@@ -46,7 +46,8 @@ let cellTwo=[];
 let move=0;
 let gameover=false;
 const showXo=function showXo(){
-
+  // $(this).attr('disabled', true);
+  $(this).off();
   if ( move%2===0 ){
   $(this).css('background','url(http://cdn.istoresinc.com/odi/images/fullsize/REX00LB1o.jpg)');
   $(this).css('background-position','center');
@@ -71,13 +72,13 @@ if((cellOne.includes(1)&&cellOne.includes(2)&&cellOne.includes(3))||(cellOne.inc
   $('.win').children().children().children().next().find('p').text('Player O Win!');
   $('.win').modal('show');
   gameover=true;
-
+  $('.col-md-4').off();
 }
 else if((cellOne.includes(2)&&cellOne.includes(5)&&cellOne.includes(8))||(cellOne.includes(3)&&cellOne.includes(6)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(5)&&cellOne.includes(9))||(cellOne.includes(3)&&cellOne.includes(5)&&cellOne.includes(7))){
   $('.win').children().children().children().next().find('p').text('Player O Win!');
   $('.win').modal('show');
   gameover=true;
-
+  $('.col-md-4').off();
 }
 else if((cellTwo.includes(1)&&cellTwo.includes(2)&&cellTwo.includes(3))||(cellTwo.includes(4)&&cellTwo.includes(5)&&cellTwo.includes(6))||(cellTwo.includes(7)&&cellTwo.includes(8)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(4)&&cellTwo.includes(7))){
   $('.win').children().children().children().next().find('p').text('Player X Win!');
@@ -85,6 +86,7 @@ else if((cellTwo.includes(1)&&cellTwo.includes(2)&&cellTwo.includes(3))||(cellTw
   console.log(cellOne);
   console.log(cellTwo);
   gameover=true;
+  $('.col-md-4').off();
 }
 else if((cellTwo.includes(2)&&cellTwo.includes(5)&&cellTwo.includes(8))||(cellTwo.includes(3)&&cellTwo.includes(6)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(5)&&cellTwo.includes(9))||(cellTwo.includes(3)&&cellTwo.includes(5)&&cellTwo.includes(7))){
   $('.win').children().children().children().next().find('p').text('Player X Win!');
@@ -92,12 +94,15 @@ else if((cellTwo.includes(2)&&cellTwo.includes(5)&&cellTwo.includes(8))||(cellTw
   console.log(cellOne);
   console.log(cellTwo);
   gameover=true;
+  $('.col-md-4').off();
 }
 else if(cellOne.length+cellTwo.length===9){
   $('.win').children().children().children().next().find('p').text("Cat's game!");
   $('.win').modal('show');
   gameover=true;
 }
+
+// $(this).removeAttr('disabled');
 };
 
 
