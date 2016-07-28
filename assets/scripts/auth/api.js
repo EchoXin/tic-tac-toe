@@ -73,24 +73,29 @@ if((cellOne.includes(1)&&cellOne.includes(2)&&cellOne.includes(3))||(cellOne.inc
   gameover=true;
 
 }
-if((cellOne.includes(2)&&cellOne.includes(5)&&cellOne.includes(8))||(cellOne.includes(3)&&cellOne.includes(6)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(5)&&cellOne.includes(9))||(cellOne.includes(3)&&cellOne.includes(5)&&cellOne.includes(7))){
+else if((cellOne.includes(2)&&cellOne.includes(5)&&cellOne.includes(8))||(cellOne.includes(3)&&cellOne.includes(6)&&cellOne.includes(9))||(cellOne.includes(1)&&cellOne.includes(5)&&cellOne.includes(9))||(cellOne.includes(3)&&cellOne.includes(5)&&cellOne.includes(7))){
   $('.win').children().children().children().next().find('p').text('Player O Win!');
   $('.win').modal('show');
   gameover=true;
 
 }
-if((cellTwo.includes(1)&&cellTwo.includes(2)&&cellTwo.includes(3))||(cellTwo.includes(4)&&cellTwo.includes(5)&&cellTwo.includes(6))||(cellTwo.includes(7)&&cellTwo.includes(8)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(4)&&cellTwo.includes(7))){
+else if((cellTwo.includes(1)&&cellTwo.includes(2)&&cellTwo.includes(3))||(cellTwo.includes(4)&&cellTwo.includes(5)&&cellTwo.includes(6))||(cellTwo.includes(7)&&cellTwo.includes(8)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(4)&&cellTwo.includes(7))){
   $('.win').children().children().children().next().find('p').text('Player X Win!');
   $('.win').modal('show');
   console.log(cellOne);
   console.log(cellTwo);
   gameover=true;
 }
-if((cellTwo.includes(2)&&cellTwo.includes(5)&&cellTwo.includes(8))||(cellTwo.includes(3)&&cellTwo.includes(6)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(5)&&cellTwo.includes(9))||(cellTwo.includes(3)&&cellTwo.includes(5)&&cellTwo.includes(7))){
+else if((cellTwo.includes(2)&&cellTwo.includes(5)&&cellTwo.includes(8))||(cellTwo.includes(3)&&cellTwo.includes(6)&&cellTwo.includes(9))||(cellTwo.includes(1)&&cellTwo.includes(5)&&cellTwo.includes(9))||(cellTwo.includes(3)&&cellTwo.includes(5)&&cellTwo.includes(7))){
   $('.win').children().children().children().next().find('p').text('Player X Win!');
   $('.win').modal('show');
   console.log(cellOne);
   console.log(cellTwo);
+  gameover=true;
+}
+else if(cellOne.length+cellTwo.length===9){
+  $('.win').children().children().children().next().find('p').text("Cat's game!");
+  $('.win').modal('show');
   gameover=true;
 }
 };

@@ -6,6 +6,7 @@ const app=require('./app');
 const signInSuccess = (data) => {
   app.user=data.user;
   console.log(app);
+  $('.navbar').find('h4').text("Welcome~~ "+data.user.email);
 };
 
 const success = (data) => {
@@ -19,6 +20,7 @@ const failure = (error) => {
 };
 
 const signOutSuccess = () => {
+  $('.navbar').find('h4').text("Welcome");
   delete app.user;
   console.log('Sign out successfully!');
 };
