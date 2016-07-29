@@ -93,7 +93,7 @@ api.create(event.target)
 const onShowGames = function (event) {
 event.preventDefault();
 api.show(event.target)
-  .done(ui.createSuccess)
+  .done(ui.showGameSuccess)
   .fail(ui.onError);
 };
 

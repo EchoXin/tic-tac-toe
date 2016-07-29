@@ -59,6 +59,7 @@ const create = function () {
 };
 
 const show = function () {
+  
   return $.ajax({
     url: app.api + '/games',  // + app.game.id,
     method: 'GET',
